@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mindpulse"
+version = "1.0.0"
+description = "A local-first mental fitness companion (wellness and education tool)"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+mindpulse = "mindpulse.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["mindpulse*"]
+
+[tool.pyright]
+include = ["mindpulse", "tests"]
+pythonVersion = "3.11"
+typeCheckingMode = "standard"
+extraPaths = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RET", "ARG", "PL"]
+# PLR2004: magic values are meaningful here (score cutoffs, pixel sizes).
+# PLR0913/PLR0917: chart geometry signatures are fixed by the specification
+# (series, width, height, margins, ranges, tick hints, titles), so an explicit
+# long argument list is intentional rather than a design smell.
+ignore = ["PLR2004", "PLR0913", "PLR0917"]

@@ -1,0 +1,17 @@
+# MindPulse has no third-party dependencies.
+#
+# Everything MindPulse needs ships with CPython 3.11+:
+#   tkinter  - the GUI toolkit (bundled with the python.org installers; on Linux
+#              install the distribution package, e.g. python3-tk)
+#   sqlite3  - local storage, one file under ~/.mindpulse/
+#   urllib   - the HTTP client for the optional AI companion
+#   unittest - the test runner (python -m unittest discover)
+#
+# So there is nothing to install:
+#
+#   python3 -m mindpulse
+#
+# Optional, for the companion only:
+#
+#   export MINDPULSE_API_KEY="..."      # never committed, never stored in SQLite
+#   export MINDPULSE_MODEL="openai/gpt-4o-mini"
