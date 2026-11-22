@@ -51,7 +51,8 @@ SAVE_FAILED = "Something went wrong saving your answers. Nothing was changed."
 def build(parent: tk.Misc, state: dict[str, Any]) -> ttk.Frame:
     """Build the questionnaire screen and start on the instrument picker."""
     frame = ttk.Frame(parent, padding=config.PAD)
-    frame.pack_propagate(False)
+    # The frame is placed by grid with sticky="nsew"; disabling propagation here
+    # would leave it at its 1x1 requested size and the tab would render blank.
     container = ttk.Frame(frame)
     container.pack(fill="both", expand=True)
     flow: dict[str, Any] = {
